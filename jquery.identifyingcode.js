@@ -3,6 +3,7 @@
 		$(this).empty();
 		if (!num) num=4;
 		if ($(this).css('position')=='static') $(this).css('position', 'relative');
+		if ($(this).css('display')=='inline') $(this).css('display', 'inline-block');
 		$(this).css({'backgroundColor': randomColor(0.2), 'overflow': 'hidden', 'user-select': 'none'});
 		var code='';
 		for (var i=0;i<num;i++) {

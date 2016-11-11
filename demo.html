@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title>Demo</title>
+	<script type="text/javascript" src="jquery-1.12.3.min.js"></script>
+	<script type="text/javascript" src="jquery.identifyingcode.js"></script>
+</head>
+<body>
+	<div class="box">
+		<input type="text" id="idcodeinput" name=""><span id="idcode" style="cursor: pointer;"></span><br>
+		<span class="errortips" style="visibility: hidden;">验证码输入错误</span>
+		<script type="text/javascript">
+			//.idCode(n): 将当前对象设置为验证码, 参数n表示验证码位数, 默认4位
+			$('#idcode').idCode().click(function(){ 
+				$(this).idCode();
+				console.log($(this).getIdCode());//.getIdCode(): 返回当前对象的验证码
+			}); 
+			$('#idcodeinput').blur(function(){
+				//.testIdCode(str, f): 用当前对象的验证码与str字符串进行对比, 参数true表示忽略大小写, 返回true或false
+				if ( $('#idcode').testIdCode($(this).val(), true) ) { 
+					$('.errortips').css('visibility', 'hidden');
+				} else {
+					$('.errortips').css('visibility', 'visible');
+				}
+			});
+		</script>
+	</div>
+</body>
+</html>
