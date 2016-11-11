@@ -12,11 +12,11 @@
 			code+=chat;
 		}
 		$('<span></span>').css({'borderBottom': '2px solid '+randomColor(0.5), 'transform': randomDeg(30), 'width': '100%', 'position': 'absolute', 'left': 0, 'top': randomPercent()}).appendTo($(this));
-		$(this).attr('idcode',code);
+		$(this).data('idcode',code);
 		return $(this);
 	}
 	$.fn.getIdCode = function(){
-		return $(this).attr('idcode');
+		return $(this).data('idcode');
 	}
 	$.fn.testIdCode = function(str,f){
 		if (f) return str.toUpperCase() === $(this).getIdCode().toUpperCase();
